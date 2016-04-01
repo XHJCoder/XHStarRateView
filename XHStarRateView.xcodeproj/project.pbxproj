@@ -14,6 +14,7 @@
 		2F20EDD51CAE16D600B650B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F20EDD41CAE16D600B650B7 /* Assets.xcassets */; };
 		2F20EDD81CAE16D600B650B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F20EDD61CAE16D600B650B7 /* LaunchScreen.storyboard */; };
 		2F20EDE31CAE16D600B650B7 /* XHStarRateViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F20EDE21CAE16D600B650B7 /* XHStarRateViewTests.m */; };
+		2F20EDF61CAE6B5E00B650B7 /* XHStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F20EDF51CAE6B5E00B650B7 /* XHStarRateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		2F20EDDE1CAE16D600B650B7 /* XHStarRateViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XHStarRateViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F20EDE21CAE16D600B650B7 /* XHStarRateViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHStarRateViewTests.m; sourceTree = "<group>"; };
 		2F20EDE41CAE16D600B650B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F20EDF41CAE6B5E00B650B7 /* XHStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHStarRateView.h; sourceTree = "<group>"; };
+		2F20EDF51CAE6B5E00B650B7 /* XHStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHStarRateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		2F20EDC71CAE16D600B650B7 /* XHStarRateView */ = {
 			isa = PBXGroup;
 			children = (
+				2F20EDF31CAE6B5E00B650B7 /* XHStarRateView */,
 				2F20EDCB1CAE16D600B650B7 /* AppDelegate.h */,
 				2F20EDCC1CAE16D600B650B7 /* AppDelegate.m */,
 				2F20EDCE1CAE16D600B650B7 /* ViewController.h */,
@@ -109,6 +113,15 @@
 				2F20EDE41CAE16D600B650B7 /* Info.plist */,
 			);
 			path = XHStarRateViewTests;
+			sourceTree = "<group>";
+		};
+		2F20EDF31CAE6B5E00B650B7 /* XHStarRateView */ = {
+			isa = PBXGroup;
+			children = (
+				2F20EDF41CAE6B5E00B650B7 /* XHStarRateView.h */,
+				2F20EDF51CAE6B5E00B650B7 /* XHStarRateView.m */,
+			);
+			path = XHStarRateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F20EDF61CAE6B5E00B650B7 /* XHStarRateView.m in Sources */,
 				2F20EDD01CAE16D600B650B7 /* ViewController.m in Sources */,
 				2F20EDCD1CAE16D600B650B7 /* AppDelegate.m in Sources */,
 				2F20EDCA1CAE16D600B650B7 /* main.m in Sources */,
@@ -344,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XHStarRateView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huahua.XHStarRateView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XHStarRateView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huahua.XHStarRateView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
