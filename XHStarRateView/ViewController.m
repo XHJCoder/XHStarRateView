@@ -32,11 +32,7 @@
      2. 初始化方法创建
      半星评论、无动画
      */
-    XHStarRateView *starRateView2 = [[XHStarRateView alloc] initWithFrame:CGRectMake(20, 100, 200, 30)
-                                                             numberOfStar:5
-                                                                rateStyle:XHStarRateViewRateStyeHalfStar
-                                                              isAnimation:NO
-                                                                 delegate:self];
+    XHStarRateView *starRateView2 = [[XHStarRateView alloc] initWithFrame:CGRectMake(20, 100, 200, 30) numberOfStar:5 rateStyle:XHStarRateViewRateStyeHalfStar isAnimation:NO delegate:self];
     starRateView2.tag = 2;
     [self.view addSubview:starRateView2];
     

@@ -16,10 +16,7 @@ static const NSUInteger KDefaultNumberOfStar = 5;
 
 @property (nonatomic, strong, readwrite) UIView *foregroundStarView;
 @property (nonatomic, strong, readwrite) UIView *backgroundStarView;
-
 @property (nonatomic, assign, readwrite) NSUInteger numberOfStar; // 星星数量
-@property (nonatomic, assign, readwrite) CGFloat currentRating;   // 当前评分，默认为 0
-
 @property (nonatomic, copy) XHStarRateViewRateCompletionBlock completionBlock;
 
 @end
@@ -42,6 +39,13 @@ static const NSUInteger KDefaultNumberOfStar = 5;
         _isAnimation     = isAnimation;
         _completionBlock = completionBlock;
         _delegate        = delegate;
+        [self createStarView];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
         [self createStarView];
     }
     return self;
@@ -144,11 +148,11 @@ static const NSUInteger KDefaultNumberOfStar = 5;
 - (void)createStarView {
     self.foregroundStarView = [self createStarViewWithImageNamed:KForegroundStarImage];
     self.backgroundStarView = [self createStarViewWithImageNamed:KBackgroundStarImage];
-    self.foregroundStarView.frame = CGRectMake(0, 0, self.bounds.size.width * _currentRating / _numberOfStar, self.bounds.size.height);
     
+    self.foregroundStarView.frame = CGRectMake(0, 0, self.bounds.size.width * _currentRating / _numberOfStar, self.bounds.size.height);
     [self addSubview:self.backgroundStarView];
     [self addSubview:self.foregroundStarView];
-    
+
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapRateView:)];
     tapGesture.numberOfTapsRequired = 1;
     [self addGestureRecognizer:tapGesture];

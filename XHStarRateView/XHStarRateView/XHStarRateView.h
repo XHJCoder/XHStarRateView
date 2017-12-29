@@ -40,10 +40,11 @@ typedef NS_ENUM(NSUInteger, XHStarRateViewRateStye) {
 
 @property (nonatomic, assign) BOOL isAnimation;                 // 是否动画显示，默认 NO
 @property (nonatomic, assign) XHStarRateViewRateStye rateStyle; // 星级评分样式
+@property (nonatomic, assign) CGFloat currentRating; // 当前评分，默认为 0
 @property (nonatomic, weak) id<XHStarRateViewDelegate> delegate;
 
 /**
- *通过代理的方法获取当前评分数currentScore
+ *通过代理的方法获取当前评分数
  */
 - (instancetype)initWithFrame:(CGRect)frame;
 
@@ -54,7 +55,7 @@ typedef NS_ENUM(NSUInteger, XHStarRateViewRateStye) {
                      delegate:(id)delegate;
 
 /**
- *通过Block传值的方法获取当前评分数currentScore
+ *通过Block传值的方法获取当前评分数
  */
 - (instancetype)initWithFrame:(CGRect)frame
                    completion:(XHStarRateViewRateCompletionBlock)completionBlock;
