@@ -46,6 +46,9 @@ static const NSUInteger KDefaultNumberOfStar = 5;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
+        if (_numberOfStar == 0) {
+            _numberOfStar = KDefaultNumberOfStar;
+        }
         [self createStarView];
     }
     return self;
@@ -149,6 +152,7 @@ static const NSUInteger KDefaultNumberOfStar = 5;
     self.foregroundStarView = [self createStarViewWithImageNamed:KForegroundStarImage];
     self.backgroundStarView = [self createStarViewWithImageNamed:KBackgroundStarImage];
     
+    NSAssert(_numberOfStar != 0, @"The Value Of Rate Star should not be Zero");
     self.foregroundStarView.frame = CGRectMake(0, 0, self.bounds.size.width * _currentRating / _numberOfStar, self.bounds.size.height);
     [self addSubview:self.backgroundStarView];
     [self addSubview:self.foregroundStarView];
@@ -162,9 +166,12 @@ static const NSUInteger KDefaultNumberOfStar = 5;
     UIView *view = [[UIView alloc] initWithFrame:self.bounds];
     view.clipsToBounds = YES;
     view.backgroundColor = [UIColor clearColor];
+    
+    NSAssert(_numberOfStar != 0, @"The Value Of Rate Star should not be Zero");
     for (NSInteger i = 0; i < _numberOfStar; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
-        imageView.frame = CGRectMake(i * self.bounds.size.width / _numberOfStar, 0, self.bounds.size.width / _numberOfStar, self.bounds.size.height);
+        float suitableWidth = MIN(self.bounds.size.width / _numberOfStar, self.bounds.size.height);
+        imageView.frame = CGRectMake(i * suitableWidth, 0, suitableWidth, suitableWidth);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [view addSubview:imageView];
     }
