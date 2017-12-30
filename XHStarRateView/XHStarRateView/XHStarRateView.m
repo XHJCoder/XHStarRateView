@@ -168,13 +168,21 @@ static const NSUInteger KDefaultNumberOfStar = 5;
     view.backgroundColor = [UIColor clearColor];
     
     NSAssert(_numberOfStar != 0, @"The Value Of Rate Star should not be Zero");
-    for (NSInteger i = 0; i < _numberOfStar; i ++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
-        float suitableWidth = MIN(self.bounds.size.width / _numberOfStar, self.bounds.size.height);
-        imageView.frame = CGRectMake(i * suitableWidth, 0, suitableWidth, suitableWidth);
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [view addSubview:imageView];
+    
+    @autoreleasepool {
+        for (NSInteger i = 0; i < _numberOfStar; i ++) {
+            @autoreleasepool {
+                UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
+                float starWidth = self.bounds.size.width / _numberOfStar;
+                float starHeigh = self.bounds.size.height;
+//                float suitableWidth = MIN(starWidth, starHeigh);
+                imageView.frame = CGRectMake(i * starWidth, 0, starWidth, starHeigh);
+                imageView.contentMode = UIViewContentModeScaleAspectFit;
+                [view addSubview:imageView];
+            }
+        }
     }
+    
     return view;
 }
 
