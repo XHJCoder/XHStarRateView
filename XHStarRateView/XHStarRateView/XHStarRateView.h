@@ -9,33 +9,61 @@
 #import <UIKit/UIKit.h>
 @class XHStarRateView;
 
-typedef void(^finishBlock)(CGFloat currentScore);
+/**
+ 点击评分的 block 回调
 
-typedef NS_ENUM(NSInteger, RateStyle)
-{
-    WholeStar = 0, //只能整星评论
-    HalfStar = 1,  //允许半星评论
-    IncompleteStar = 2  //允许不完整星评论
+ @param currentScore 当前评论分数，CGFloat 类型
+ */
+typedef void(^XHStarRateViewRateCompletionBlock)(CGFloat currentScore);
+
+/**
+ 星级评分样式
+
+ - XHStarRateViewRateStyeFullStar:       整星评论，默认样式。
+ - XHStarRateViewRateStyeHalfStar:       允许半星评论。
+ - XHStarRateViewRateStyeIncompleteStar: 允许不完整星评论。
+ */
+typedef NS_ENUM(NSUInteger, XHStarRateViewRateStye) {
+    XHStarRateViewRateStyeFullStar,
+    XHStarRateViewRateStyeHalfStar,
+    XHStarRateViewRateStyeIncompleteStar,
 };
 
+/**
+ 点击评分的代理方法
+ */
 @protocol XHStarRateViewDelegate <NSObject>
-
--(void)starRateView:(XHStarRateView *)starRateView currentScore:(CGFloat)currentScore;
-
+-(void)starRateView:(XHStarRateView *)starRateView ratingDidChange:(CGFloat)currentRating;
 @end
 
 @interface XHStarRateView : UIView
 
-@property (nonatomic,assign)BOOL isAnimation;       //是否动画显示，默认NO
-@property (nonatomic,assign)RateStyle rateStyle;    //评分样式    默认是WholeStar
-@property (nonatomic, weak) id<XHStarRateViewDelegate>delegate;
+@property (nonatomic, assign) BOOL isAnimation;                 // 是否动画显示，默认 NO
+@property (nonatomic, assign) XHStarRateViewRateStye rateStyle; // 星级评分样式
+@property (nonatomic, assign) CGFloat currentRating; // 当前评分，默认为 0
+@property (nonatomic, weak) id<XHStarRateViewDelegate> delegate;
 
+/**
+ *通过代理的方法获取当前评分数
+ */
+- (instancetype)initWithFrame:(CGRect)frame;
 
--(instancetype)initWithFrame:(CGRect)frame;
--(instancetype)initWithFrame:(CGRect)frame numberOfStars:(NSInteger)numberOfStars rateStyle:(RateStyle)rateStyle isAnination:(BOOL)isAnimation delegate:(id)delegate;
+- (instancetype)initWithFrame:(CGRect)frame
+                 numberOfStar:(NSInteger)numberOfStar
+                    rateStyle:(XHStarRateViewRateStye)rateStyle
+                  isAnimation:(BOOL)isAnimation
+                     delegate:(id)delegate;
 
+/**
+ *通过Block传值的方法获取当前评分数
+ */
+- (instancetype)initWithFrame:(CGRect)frame
+                   completion:(XHStarRateViewRateCompletionBlock)completionBlock;
 
--(instancetype)initWithFrame:(CGRect)frame finish:(finishBlock)finish;
--(instancetype)initWithFrame:(CGRect)frame numberOfStars:(NSInteger)numberOfStars rateStyle:(RateStyle)rateStyle isAnination:(BOOL)isAnimation finish:(finishBlock)finish;
+- (instancetype)initWithFrame:(CGRect)frame
+                 numberOfStar:(NSInteger)numberOfStar
+                    rateStyle:(XHStarRateViewRateStye)rateStyle
+                  isAnimation:(BOOL)isAnimation
+                   completion:(XHStarRateViewRateCompletionBlock)completionBlock;
 
 @end

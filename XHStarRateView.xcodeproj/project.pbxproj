@@ -173,6 +173,7 @@
 				TargetAttributes = {
 					2F20EDC41CAE16D600B650B7 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = C33JS9A6R3;
 					};
 					2F20EDDD1CAE16D600B650B7 = {
 						CreatedOnToolsVersion = 7.3;
@@ -357,10 +358,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C33JS9A6R3;
 				INFOPLIST_FILE = XHStarRateView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huahua.XHStarRateView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonintech.XHStarRateView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -369,10 +371,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C33JS9A6R3;
 				INFOPLIST_FILE = XHStarRateView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huahua.XHStarRateView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonintech.XHStarRateView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -420,6 +423,7 @@
 				2F20EDE91CAE16D600B650B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F20EDEA1CAE16D600B650B7 /* Build configuration list for PBXNativeTarget "XHStarRateViewTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +432,7 @@
 				2F20EDEC1CAE16D600B650B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
